@@ -1,14 +1,17 @@
 var myArgs = process.argv.slice(2);
 
+console.log(myArgs.length);
+
 const a = parseInt(myArgs[0]);
 const b = parseInt(myArgs[2]);
 
-if (isInteger(a) === false || isInteger(b) === false) {
+if (typeof a !== "number" || typeof b !== "number") {
   console.log("Please enter a number");
-} else if (
-  myArgs[1] !== "add" ||
-  myArgs[1] !== "minus" ||
-  myArgs[1] !== "times" ||
+}
+if (
+  myArgs[1] !== "add" &&
+  myArgs[1] !== "minus" &&
+  myArgs[1] !== "times" &&
   myArgs[1] !== "divided"
 ) {
   console.log("Please enter a valid operator");
