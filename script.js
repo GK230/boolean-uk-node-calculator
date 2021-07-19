@@ -3,21 +3,22 @@ var myArgs = process.argv.slice(2);
 let i = 0;
 let subtotal = 0;
 for (i = 0; i < myArgs.length; i++) {
-  if (myArgs[i] !== /([0-9]|[*/+-])/) {
+  if (myArgs[i] !== /^(\d+[\+\-\*\/]{1})+\d+$/) {
     console.log("Please enter a number or operator");
-  } else if (myArgs[i] === /[0-9]/) {
+  } else if (myArgs[i] === /[0-9]/g) {
     parseInt(myArgs[i]);
-  }
 
-  if (myArgs[i] === "*") {
-    subtotal += myArgs[i - 1] * myArgs[i + 1];
-  } else if (myArgs[i] == "/") {
-    subtotal += myArgs[i - 1] / myArgs[i + 1];
-  }
-  if (myArgs[i] === "+") {
-    subtotal += myArgs[i - 1] + myArgs[i + 1];
-  } else if (myArgs[i] === "-") {
-    subtotal += myArgs[i - 1] - myArgs[i + 1];
+    if (myArgs[i] === "*") {
+      subtotal += myArgs[i - 1] * myArgs[i + 1];
+    } else if (myArgs[i] == "/") {
+      subtotal += myArgs[i - 1] / myArgs[i + 1];
+    }
+    if (myArgs[i] === "+") {
+      subtotal += myArgs[i - 1] + myArgs[i + 1];
+    } else if (myArgs[i] === "-") {
+      subtotal += myArgs[i - 1] - myArgs[i + 1];
+    }
+    console.log(subtotal);
   }
 }
 
