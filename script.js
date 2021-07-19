@@ -1,11 +1,10 @@
 var myArgs = process.argv.slice(2);
 
-let i = 0;
 let subtotal = 0;
-for (i = 0; i < myArgs.length; i++) {
-  if (myArgs[i] !== /^(\d+[\+\-\*\/]{1})+\d+$/) {
-    console.log("Please enter a number or operator");
-  } else if (myArgs[i] === /[0-9]/g) {
+for (let i = 1; i < myArgs.length; i++) {
+  // if (myArgs[i] === /^(\d+[\+\-\*\/]{1})+\d+$/) {
+  //   console.log("Please enter a number or operator");
+  // } else if (myArgs[i] === /[0-9]/g) {
     parseInt(myArgs[i]);
 
     if (myArgs[i] === "*") {
@@ -20,7 +19,7 @@ for (i = 0; i < myArgs.length; i++) {
     }
     console.log(subtotal);
   }
-}
+// }
 
 // const a = parseInt(myArgs[0]);
 // const b = parseInt(myArgs[2]);
